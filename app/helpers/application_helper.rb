@@ -1,7 +1,8 @@
 module ApplicationHelper
-  def display_image(url)
-    if File.file?(url)
-      image_tag(url)
+  def url_for_image(photo, type)
+    url = photo.url(type) rescue false
+    if url
+      image_tag(photo.url(type))
     else
       image_tag('/default.png')
     end
