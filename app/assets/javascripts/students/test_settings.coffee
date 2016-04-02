@@ -7,6 +7,7 @@ $ ->
     if options
       $("#test_theme_select_box").html(options)
       $("#test_theme_select_box").parent().show()
+      $("#test_theme_select_box").trigger('change')
     else
       $("#test_theme_select_box").empty()
       $("#test_theme_select_box").parent().hide()
