@@ -2,6 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /*index*/
+#logout-menu{
+  margin-top: 40px;
+  
+  .text{
+    display: -webkit-box;
+    padding-left: 15px;
+    margin-bottom: 10px;
+  }
+}
+
+#navigation-buttons {
+  margin-bottom: 0px; 
+  margin-top: -20px;
+}
+
+#top-nav-panel{
+  a, button{
+    font-size: 14px;
+  }
+}
+
 #search_field {
   height: 190px;
   margin-bottom:0px;

@@ -317,6 +317,7 @@ ua:
         controllers:
           error: "Ви не можете видалити цього учня."
   welcome:
+    user_message: 'Вітаю'
     right_panel:
       h_search: "Пошук"
       search: "Пошук"

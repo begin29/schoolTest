@@ -1,9 +1,8 @@
 module ApplicationHelper
-  def display_image(url)
-    if File.file?(url)
-      binding.pry
-      image_tag(url)
-    else
+  def display_image(photo, type)
+    begin
+      image_tag(photo.url(type))  
+    rescue DropboxError => e
       image_tag('/default.png')
     end
   end
