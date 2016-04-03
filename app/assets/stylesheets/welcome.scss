@@ -4,7 +4,7 @@
 /*index*/
 #logout-menu{
   margin-top: 40px;
-  
+
   .text{
     display: -webkit-box;
     padding-left: 15px;
@@ -24,8 +24,11 @@
 }
 
 #search_field {
-  height: 190px;
   margin-bottom:0px;
+  .panel-body{
+    padding: 0px;
+    margin: -10px 10px 10px 10px;
+  }
 }
 
 .search_form {
@@ -91,7 +94,7 @@ a#clean_search_field span::after {
 #main_new_field {
   padding: 15px 15px 15px 15px;
   border-color: #5bc0de;
-  background: #ccffff;
+  background: aliceblue;
 }
 
 #panel_heading_main_new {
