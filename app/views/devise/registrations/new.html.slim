@@ -1,79 +1,76 @@
-ul.nav.nav-tabs
-  li.active
-    =link_to t('.buttons.student'), "#tab1", html_options = { "data-toggle" => "tab" }
-  li
-    =link_to t('.buttons.teacher'), "#tab2", html_options = { "data-toggle" => "tab" }
+#registration-form
+  ul.nav.nav-tabs
+    li.active
+      =link_to t('.buttons.student'), "#tab1", html_options = { "data-toggle" => "tab" }
+    li
+      =link_to t('.buttons.teacher'), "#tab2", html_options = { "data-toggle" => "tab" }
 
-.tab-content
-  .tab-pane.active#tab1
-    h3
-      = t '.h_registration'
-    = form_for(resource, html: {class: "sign_up_student"}, as: resource_name, url: registration_path(resource_name)) do |f|
-      = devise_error_messages!
-      .col-md-2
-        .field
-          = f.label :full_name
-          = f.text_field :full_name, autofocus: true
-        .field
-          = f.label :email
-          = f.email_field :email
-        .field
-          = f.label :categgory_id
-          = f.collection_select :categgory_id, Categgory.all, :id, :name
-          = hidden_field_tag(:user_role, :student)
-        .field
-          = f.label :password
-          - if @validatable
-            em
-              = '.min_password_length'
-          = f.password_field :password, autocomplete: "off"
-        .field
-          = f.label :password_confirmation
+  .tab-content
+    .tab-pane.active#tab1
+      h3
+        = t '.h_registration'
+      = form_for(resource, html: {class: "sign_up_student"}, as: resource_name, url: registration_path(resource_name)) do |f|
+        = devise_error_messages!
+        .col-md-2
+          .field
+            = f.label :full_name
+            = f.text_field :full_name, autofocus: true, class: 'form-control'
+          .field
+            = f.label :email
+            = f.email_field :email, class: 'form-control'
+          .field
+            = f.label :categgory_id
+            = f.collection_select :categgory_id, Categgory.all, :id, :name
+            = hidden_field_tag(:user_role, :student)
+          .field
+            = f.label :password
+            - if @validatable
+              em
+                = '.min_password_length'
+            = f.password_field :password, autocomplete: "off", class: 'form-control'
+          .field
+            = f.label :password_confirmation
+            br
+            = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
           br
-          = f.password_field :password_confirmation, autocomplete: "off"
-        br
-        .actions
-          = f.submit t('buttons.submit'), class: "btn btn-info", id: "b_registration"
-        br
-        = render "devise/shared/links"
-        = link_to t('buttons.back'), :back
+          .actions
+            = f.submit t('buttons.submit'), class: "btn btn-info", id: "b_registration"
+          br
 
-  .tab-pane#tab2
-    h3
-      = t'.h_registration'
-    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "sign_up_teacher", multipart: true}) do |f|
-      = devise_error_messages!
-      .col-md-2
-        .field
-          = f.label :full_name
-          = f.text_field :full_name, autofocus: true
-        .field
-          = f.label :email
-          = f.email_field :email
-        .field
-          = f.label :subject_id
-          = f.collection_select :subject_id, Subject.all, :id, :name
-          = hidden_field_tag(:user_role, :teacher)
-        .field
-          = f.label :password
-          - if @validatable
-            em
-              | (мінімум #{@minimum_password_length} символів)
-          = f.password_field :password, autocomplete: "off"
-        .field
-          = f.label :password_confirmation
+    .tab-pane#tab2
+      h3
+        = t'.h_registration'
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "sign_up_teacher", multipart: true}) do |f|
+        = devise_error_messages!
+        .col-md-2
+          .field
+            = f.label :full_name
+            = f.text_field :full_name, autofocus: true, class: 'form-control'
+          .field
+            = f.label :email
+            = f.email_field :email, class: 'form-control'
+          .field
+            = f.label :subject_id
+            = f.collection_select :subject_id, Subject.all, :id, :name
+            = hidden_field_tag(:user_role, :teacher)
+          .field
+            = f.label :password
+            - if @validatable
+              em
+                | (мінімум #{@minimum_password_length} символів)
+            = f.password_field :password, autocomplete: "off", class: 'form-control'
+          .field
+            = f.label :password_confirmation
+            br
+            = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+          .field
+            b
+              = t('.choose_avatar')
+            br
+            = f.fields_for :image, resource.build_image do |img|
+              = img.label :photo do
+                = img.file_field :photo
           br
-          = f.password_field :password_confirmation, autocomplete: "off"
-        .field
-          b
-            = t('.choose_avatar')
+          .actions
+            = f.submit t('buttons.submit'), class: "btn btn-info", id: "b_registration"
           br
-          = f.fields_for :image, resource.build_image do |img|
-            = img.label :photo do
-              = img.file_field :photo
-        br
-        .actions
-          = f.submit t('buttons.submit'), class: "btn btn-info", id: "b_registration"
-        br
-        = render "devise/shared/links"
-        = link_to t('buttons.back'), :back

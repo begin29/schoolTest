@@ -1,5 +1,14 @@
 /*user*/
     /*sign up*/
+#registration-form{
+  input{
+    width: 176px;
+  }
+}
+
+#login-form{
+  width: 50%;
+}
 
 input.carrier {
     color: blue;
@@ -47,9 +56,6 @@ input.carrier {
 }
 
 /*sign in*/
-.sign_in_form {
-  height: 465px;
-}
 
 #form_forgot_password{
   height:465px;
