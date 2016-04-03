@@ -22,9 +22,12 @@ $ ->
     serialized_data = $(".test-form").serialize()
     $.ajax
       url: url
-      type: "post"
+      type: "POST"
       data: serialized_data
+      success: (data) ->
+        location.href = data.url
 
   url = "#{$('.test-form').attr('action')}/finish_test"
   time = $('#time_tab').data('content')
-  $('#time_tab').countdown({until: time, expiryUrl: url, onExpiry: liftOff, format: 'MS'})
+  time = 5
+  $('#time_tab').countdown({until: time, onExpiry: liftOff, format: 'MS'})
