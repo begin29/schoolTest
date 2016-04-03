@@ -24,7 +24,7 @@
         = f.fields_for :images do |img|
           = render 'image_fields', f: img
         hr
-        .l_add_photo#links_q_a
+        .l_add_photo.links_q_a
           = link_to_add_fields t('buttons.add_photo'), f, :images
     .form-group
       br
