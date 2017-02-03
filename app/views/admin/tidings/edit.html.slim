@@ -4,12 +4,11 @@ h3
   = t('.h_edit_new')
 
 = render "form"
-
 .col-md-6#field-with-images
   ol
     - @tiding.images.each do |imag|
       li
-        = display_image(imag.photo, :small)
+        = url_for_image(imag.photo, :small)
 
 .col-md-12
   = link_to t('buttons.back'), admin_tidings_path
