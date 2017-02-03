@@ -1,17 +1,16 @@
 /* index*/
-#show_test_setting_links {
-  position:relative;
-  left:-4%;
-  top:70px;
-}
-
 #h_test_list {
   position:relative;
   left:15%;
 }
 
 #form-student-choose-tests {
-  height:465px;
+  form{
+    display: -webkit-box;
+    .choose-subject{
+      margin-right: 30px;
+    }
+  }
 }
 /* show*/
 #button_pass_test {

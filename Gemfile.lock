@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/begin29/carrierwave-dropbox.git
-  revision: 554e93c02ef825a4be36a32b932481db036fe377
-  specs:
-    carrierwave-dropbox (1.2.1)
-      carrierwave (~> 0.9)
-      dropbox-sdk (~> 1.6)
-
-GIT
   remote: git://github.com/begin29/carrierwave-video.git
   revision: bd47992dd51493d3bfff6e519b284868062b34e8
   specs:
@@ -39,6 +31,13 @@ GIT
     carrierwave-mega (0.0.1)
       carrierwave
       rmega
+
+PATH
+  remote: /home/begin/projects/carrierwave-dropbox
+  specs:
+    carrierwave-dropbox (1.2.1)
+      carrierwave (~> 0.9)
+      dropbox-sdk (~> 1.6)
 
 GEM
   remote: https://rubygems.org/
@@ -354,3 +353,6 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
   will_paginate
+
+BUNDLED WITH
+   1.11.2

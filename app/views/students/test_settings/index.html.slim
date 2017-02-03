@@ -4,7 +4,7 @@ h3
 .col-md-6
   .select_form#form-student-choose-tests
     = form_for :test_setting, url: {action: "search_test_settings"}, method: 'get', class: 'select-form' do |f|
-      .field
+      .field.choose-subject
         b
           = t '.choose_subject'
         br
@@ -16,12 +16,6 @@ h3
         br
         = f.grouped_collection_select(:theme_id, Subject.order(:name), :themes, :name, :id, :name, {}, {id: "test_theme_select_box"})
 
-.col-md-2#h_test_list
+#h_test_list
   h4
     = t '.h_tests'
-
-.col-md-4#show_test_setting_links
-
-.col-md-7
-  br
-  = link_to t('buttons.back'), root_path
